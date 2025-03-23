@@ -1,3 +1,4 @@
+%undefine _debugsource_packages
 Name: qtile
 Version: 0.31.0
 Release: 1
