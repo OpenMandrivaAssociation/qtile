@@ -73,7 +73,7 @@ Summary: Qtile's python library
 
 %package wayland
 Summary: Qtile wayland session
-BuildRequires: xorg-x11-server-Xwayland
+BuildRequires: xwayland
 Requires: qtile = %{version}-%{release}
 Requires: python3-libqtile+wayland = %{version}-%{release}
 
