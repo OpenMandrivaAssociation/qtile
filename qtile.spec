@@ -43,7 +43,7 @@ Recommends: python-mpd2
 Recommends: python-pulsectl
 Recommends: python-pulsectl-asyncio
 
-Requires: python3-libqtile = %{version}-%{release}
+Requires: python-libqtile = %{version}-%{release}
 
 
 %description
@@ -63,11 +63,11 @@ Features
       unit-tested window mangers around.
 
 
-%package -n python3-libqtile
+%package -n python-libqtile
 Summary: Qtile's python library
 
 
-%description -n python3-libqtile
+%description -n python-libqtile
 %{summary}.
 
 
@@ -75,12 +75,12 @@ Summary: Qtile's python library
 Summary: Qtile wayland session
 BuildRequires: xwayland
 Requires: qtile = %{version}-%{release}
-Requires: python3-libqtile+wayland = %{version}-%{release}
+Requires: python-libqtile+wayland = %{version}-%{release}
 
 %description wayland
 %{summary}.
 
-%pyproject_extras_subpkg -n python3-libqtile wayland
+%pyproject_extras_subpkg -n python-libqtile wayland
 
 
 %prep
@@ -109,7 +109,7 @@ desktop-file-install \
 %{_bindir}/qtile
 %{_datadir}/xsessions/qtile.desktop
 
-%files -n python3-libqtile -f %{pyproject_files}
+%files -n python-libqtile
 
 %files wayland
 %{_datadir}/wayland-sessions/qtile-wayland.desktop
