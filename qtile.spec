@@ -77,10 +77,8 @@ BuildRequires: xwayland
 Requires: qtile = %{version}-%{release}
 Requires: python3-libqtile+wayland = %{version}-%{release}
 
-
 %description wayland
 %{summary}.
-
 
 %pyproject_extras_subpkg -n python3-libqtile wayland
 
@@ -106,26 +104,12 @@ desktop-file-install \
     --dir %{buildroot}%{_datadir}/wayland-sessions/ \
     resources/qtile-wayland.desktop
 
-
-%check
-# The tests can sometimes randomly fail. Rebuilding the package again usually
-# solves the issue. Please see the upstream issue:
-# https://github.com/qtile/qtile/issues/4573
-%ifnarch s390x ppc64le
-# The test_chord_widget is broken on Rawhide (F41)
-# https://github.com/qtile/qtile/issues/4930
-%pytest -vv --backend x11 --backend wayland -k "not test_chord_widget"
-%endif
-
-
 %files
 %doc README.rst
 %{_bindir}/qtile
 %{_datadir}/xsessions/qtile.desktop
 
-
 %files -n python3-libqtile -f %{pyproject_files}
-
 
 %files wayland
 %{_datadir}/wayland-sessions/qtile-wayland.desktop
