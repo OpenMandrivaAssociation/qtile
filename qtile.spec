@@ -111,6 +111,8 @@ desktop-file-install \
 %{_datadir}/xsessions/qtile.desktop
 
 %files -n python-libqtile
+%{python_sitelib}/libqtile/
+%{python_sitelib}/qtile-*.*.*.dist-info
 
 %files wayland
 %{_datadir}/wayland-sessions/qtile-wayland.desktop
