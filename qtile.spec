@@ -76,7 +76,7 @@ Summary: Qtile's python library
 Summary: Qtile wayland session
 BuildRequires: xwayland
 Requires: qtile = %{version}-%{release}
-Requires: python-libqtile+wayland = %{version}-%{release}
+Requires: python-libqtile = %{version}-%{release}
 
 %description wayland
 %{summary}.
