@@ -89,8 +89,8 @@ Requires: python-libqtile = %{version}-%{release}
 
 %build
 export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
-%py_build
 PYTHONPATH=${PWD} ./scripts/ffibuild
+%py_build
 
 %install
 %py_install
