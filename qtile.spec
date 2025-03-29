@@ -8,8 +8,12 @@ Source0: https://github.com/qtile/qtile/archive/v%{version}/qtile-%{version}.tar
 License: MIT AND GPL-3.0-or-later
 Url: http://qtile.org
 
-BuildRequires:  pkgconfig(python3)
-BuildRequires:  desktop-file-utils
+BuildRequires: pkgconfig(python3)
+BuildRequires: desktop-file-utils
+BuildRequires: xwayland
+BuildRequires: python-pywayland
+BuildRequires: python-pywlroots
+BuildRequires: python-xkbcommon
 
 # Test dependencies
 BuildRequires:  x11-server-xvfb
@@ -74,10 +78,6 @@ Summary: Qtile's python library
 
 %package wayland
 Summary: Qtile wayland session
-BuildRequires: xwayland
-BuildRequires: python-pywayland
-BuildRequires: python-pywlroots
-BuildRequires: python-xkbcommon
 
 Requires: qtile = %{version}-%{release}
 Requires: python-libqtile = %{version}-%{release}
