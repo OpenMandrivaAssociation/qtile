@@ -75,6 +75,10 @@ Summary: Qtile's python library
 %package wayland
 Summary: Qtile wayland session
 BuildRequires: xwayland
+BuildRequires: python-pywayland
+BuildRequires: python-pywlroots
+BuildRequires: python-xkbcommon
+
 Requires: qtile = %{version}-%{release}
 Requires: python-libqtile = %{version}-%{release}
 
