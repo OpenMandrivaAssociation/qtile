@@ -16,8 +16,8 @@ BuildRequires: python-pywlroots
 BuildRequires: python-xkbcommon
 
 # Test dependencies
-BuildRequires:  x11-server-xvfb
-BuildRequires:  x11-server-xephyr
+#BuildRequires:  x11-server-xvfb
+#BuildRequires:  x11-server-xephyr
 BuildRequires:  librsvg
 BuildRequires: (pkgconfig(wlroots) >= 0.17.0 with pkgconfig(wlroots) < 0.18)
 # https://github.com/qtile/qtile/issues/4830
