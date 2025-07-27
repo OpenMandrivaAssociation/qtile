@@ -14,6 +14,7 @@ BuildRequires: xwayland
 BuildRequires: python-pywayland
 BuildRequires: python-pywlroots
 BuildRequires: python-xkbcommon
+BuildRequires: python-setuptools_scm
 
 # Test dependencies
 #BuildRequires:  x11-server-xvfb
