@@ -8,6 +8,7 @@ Source0: https://github.com/qtile/qtile/archive/v%{version}/qtile-%{version}.tar
 License: MIT AND GPL-3.0-or-later
 Url: http://qtile.org
 
+BuildRequires: python
 BuildRequires: pkgconfig(python3)
 BuildRequires: desktop-file-utils
 BuildRequires: xwayland
