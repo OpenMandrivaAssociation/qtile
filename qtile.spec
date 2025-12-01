@@ -19,7 +19,7 @@ BuildRequires: python-xkbcommon
 #BuildRequires:  x11-server-xvfb
 #BuildRequires:  x11-server-xephyr
 BuildRequires:  librsvg
-BuildRequires: (pkgconfig(wlroots) >= 0.17.0 with pkgconfig(wlroots) < 0.18)
+BuildRequires: (pkgconfig(wlroots) >= 0.19.0 with pkgconfig(wlroots) < 0.20)
 # https://github.com/qtile/qtile/issues/4830
 BuildRequires: python-isort
 
@@ -79,6 +79,10 @@ Summary: Qtile's python library
 %package wayland
 Summary: Qtile wayland session
 
+BuildRequires: pkgconfig(cairo)
+BuildRequires: pkgconfig(gobject-introspection-1.0)
+BuildRequires: pkgconfig(wayland-protocols)
+
 Requires: qtile = %{version}-%{release}
 Requires: python-libqtile = %{version}-%{release}
 
@@ -93,7 +97,8 @@ Requires: python-libqtile = %{version}-%{release}
 
 %build
 export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
-PYTHONPATH=${PWD} ./scripts/ffibuild
+#PYTHONPATH=${PWD} ./scripts/ffibuild
+PYTHONPATH=${PWD} %{python3} ./libqtile/backend/wayland/cffi/build.py
 %py_build
 
 %install
