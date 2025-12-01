@@ -19,7 +19,7 @@ BuildRequires: python-xkbcommon
 #BuildRequires:  x11-server-xvfb
 #BuildRequires:  x11-server-xephyr
 BuildRequires:  librsvg
-BuildRequires: pkgconfig(wlroots-0.19) >= 0.19.0 with pkgconfig(wlroots-0.19) < 0.20)
+BuildRequires: pkgconfig(wlroots-0.19)
 # https://github.com/qtile/qtile/issues/4830
 BuildRequires: python-isort
 
