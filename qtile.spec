@@ -132,3 +132,4 @@ desktop-file-install \
 
 %files wayland
 %{_datadir}/wayland-sessions/qtile-wayland.desktop
+%{python_sitearch}/libqtile/backend/wayland/_ffi.cpython-*-*-linux-gnu.so
