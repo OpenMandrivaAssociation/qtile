@@ -8,18 +8,21 @@ Source0: https://github.com/qtile/qtile/archive/v%{version}/qtile-%{version}.tar
 License: MIT AND GPL-3.0-or-later
 Url: http://qtile.org
 
+BuildRequires: python
 BuildRequires: pkgconfig(python3)
 BuildRequires: desktop-file-utils
 BuildRequires: xwayland
 BuildRequires: python-pywayland
 BuildRequires: python-pywlroots
 BuildRequires: python-xkbcommon
+BuildRequires: python-cffi
+BuildRequires: python-pip
 
 # Test dependencies
 #BuildRequires:  x11-server-xvfb
 #BuildRequires:  x11-server-xephyr
 BuildRequires:  librsvg
-BuildRequires: (pkgconfig(wlroots) >= 0.17.0 with pkgconfig(wlroots) < 0.18)
+BuildRequires: pkgconfig(wlroots-0.19)
 # https://github.com/qtile/qtile/issues/4830
 BuildRequires: python-isort
 
@@ -79,6 +82,10 @@ Summary: Qtile's python library
 %package wayland
 Summary: Qtile wayland session
 
+BuildRequires: pkgconfig(cairo)
+BuildRequires: pkgconfig(gobject-introspection-1.0)
+BuildRequires: pkgconfig(wayland-protocols)
+
 Requires: qtile = %{version}-%{release}
 Requires: python-libqtile = %{version}-%{release}
 
@@ -93,11 +100,16 @@ Requires: python-libqtile = %{version}-%{release}
 
 %build
 export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
-PYTHONPATH=${PWD} ./scripts/ffibuild
+#PYTHONPATH=${PWD} ./scripts/ffibuild
+#PYTHONPATH=${PWD} %{python3} ./libqtile/backend/wayland/cffi/build.py
+PYTHONPATH="$PWD" python ./libqtile/backend/wayland/cffi/build.py
 %py_build
 
 %install
 %py_install
+
+mkdir -p %{buildroot}%{python3_sitearch}/libqtile/backend/wayland/
+cp -a ./libqtile/backend/wayland/_ffi.*.so %{buildroot}%{python3_sitearch}/libqtile/backend/wayland/
 
 mkdir -p %{buildroot}%{_datadir}/xsessions/
 desktop-file-install \
@@ -120,3 +132,4 @@ desktop-file-install \
 
 %files wayland
 %{_datadir}/wayland-sessions/qtile-wayland.desktop
+%{python_sitearch}/libqtile/backend/wayland/_ffi.cpython-*-*-linux-gnu.so
