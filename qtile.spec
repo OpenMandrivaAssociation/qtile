@@ -16,6 +16,7 @@ BuildRequires: python-pywayland
 BuildRequires: python-pywlroots
 BuildRequires: python-xkbcommon
 BuildRequires: python-cffi
+BuildRequires: python-pip
 
 # Test dependencies
 #BuildRequires:  x11-server-xvfb
