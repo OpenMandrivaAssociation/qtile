@@ -108,6 +108,9 @@ PYTHONPATH="$PWD" python ./libqtile/backend/wayland/cffi/build.py
 %install
 %py_install
 
+mkdir -p %{buildroot}%{python3_sitearch}/libqtile/backend/wayland/
+cp -a ./libqtile/backend/wayland/_ffi.*.so %{buildroot}%{python3_sitearch}/libqtile/backend/wayland/
+
 mkdir -p %{buildroot}%{_datadir}/xsessions/
 desktop-file-install \
     --dir %{buildroot}%{_datadir}/xsessions/ \
