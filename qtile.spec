@@ -15,6 +15,7 @@ BuildRequires: xwayland
 BuildRequires: python-pywayland
 BuildRequires: python-pywlroots
 BuildRequires: python-xkbcommon
+BuildRequires: python-cffi
 
 # Test dependencies
 #BuildRequires:  x11-server-xvfb
@@ -99,7 +100,8 @@ Requires: python-libqtile = %{version}-%{release}
 %build
 export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 #PYTHONPATH=${PWD} ./scripts/ffibuild
-PYTHONPATH=${PWD} %{python3} ./libqtile/backend/wayland/cffi/build.py
+#PYTHONPATH=${PWD} %{python3} ./libqtile/backend/wayland/cffi/build.py
+PYTHONPATH="$PWD" python ./libqtile/backend/wayland/cffi/build.py
 %py_build
 
 %install
