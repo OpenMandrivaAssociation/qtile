@@ -1,10 +1,11 @@
 %undefine _debugsource_packages
 Name: qtile
-Version: 0.36.0
+Version: 0.37.0
 Release: 1
 Summary: A pure-Python tiling window manager
 Group: Graphical desktop/Other
 Source0: https://github.com/qtile/qtile/archive/v%{version}/qtile-%{version}.tar.gz
+Patch0:	qtile-0.37.0-user-unit-exec.patch
 License: MIT AND GPL-3.0-or-later
 Url: http://qtile.org
 
@@ -22,10 +23,11 @@ BuildRequires: python-pip
 #BuildRequires:  x11-server-xvfb
 #BuildRequires:  x11-server-xephyr
 BuildRequires:  librsvg
-BuildRequires: pkgconfig(wlroots-0.19)
+BuildRequires: pkgconfig(wlroots-0.20)
 # https://github.com/qtile/qtile/issues/4830
 BuildRequires: python-isort
 
+#FIXME
 # Some dependencies are loaded with ffi.dlopen, and to declare them properly
 # we'll need this suffix.
 %if 0%{?__isa_bits} == 32
