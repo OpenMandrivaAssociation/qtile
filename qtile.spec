@@ -1,7 +1,7 @@
 %undefine _debugsource_packages
 Name: qtile
 Version: 0.36.0
-Release: 1
+Release: 2
 Summary: A pure-Python tiling window manager
 Group: Graphical desktop/Other
 Source0: https://github.com/qtile/qtile/archive/v%{version}/qtile-%{version}.tar.gz
