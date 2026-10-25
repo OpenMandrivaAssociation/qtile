@@ -11,7 +11,6 @@ Url: http://qtile.org
 
 BuildRequires: python
 BuildRequires: pkgconfig(python3)
-BuildRequires: desktop-file-utils
 BuildRequires: xwayland
 BuildRequires: python-pywayland
 BuildRequires: python-pywlroots
